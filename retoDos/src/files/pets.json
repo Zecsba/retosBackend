@@ -1,0 +1,22 @@
+[
+	{
+		"name": "Orejas",
+		"especie": "Zorro",
+		"id": 1
+	},
+	{
+		"name": "Sasha",
+		"especie": "Perro",
+		"id": 2
+	},
+	{
+		"name": "Tobby",
+		"especie": "Gato",
+		"id": 3
+	},
+	{
+		"name": "Panfilo",
+		"especie": "Iguana",
+		"id": 4
+	}
+]
