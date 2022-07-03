@@ -1,22 +1,17 @@
 [
 	{
-		"name": "Orejas",
-		"especie": "Zorro",
+		"name": "Perico",
+		"especie": "Loro",
 		"id": 1
 	},
 	{
-		"name": "Sasha",
+		"name": "Patitas",
 		"especie": "Perro",
-		"id": 2
-	},
-	{
-		"name": "Tobby",
-		"especie": "Gato",
 		"id": 3
 	},
 	{
-		"name": "Panfilo",
-		"especie": "Iguana",
+		"name": "Orejitas",
+		"especie": "Gato",
 		"id": 4
 	}
 ]

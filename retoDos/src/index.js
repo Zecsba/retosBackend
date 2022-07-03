@@ -11,11 +11,18 @@ const enviroment = async() =>{
     console.log('Añadiendo una mascota')
    
     let pet = {
-        name: 'Panfilo',
-        especie: 'Iguana'
+        name: 'Orejitas',
+        especie: 'Gato'
     }
 
-   await petService.addPet(pet)
+    let id = 3
+    let deleteById = 2
+
+    await petService.addPet(pet)
+    await petService.getById(id)
+    await petService.deleteById(deleteById)
+
+    // await petService.deleteAll()
 }
 
 enviroment()
