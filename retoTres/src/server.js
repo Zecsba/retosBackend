@@ -17,6 +17,6 @@ app.get('/', (req, res) =>{
 })
 
 app.get('/productos', async (req, res) =>{
-    let result = await getProducts
+    let result = await getProducts()
     res.send(result)
 })
