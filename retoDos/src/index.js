@@ -4,11 +4,11 @@ const PetManager = require('./containers/petManager.js')
 const petService = new PetManager()
 
 const enviroment = async() =>{
-    console.log('Opteniedo mascostas')
+    console.log('Get pets')
     let pets = await petService.getAllPets()
     console.log(pets)
     
-    console.log('Añadiendo una mascota')
+    console.log('Add pets')
    
     let pet = {
         name: 'Orejitas',

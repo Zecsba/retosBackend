@@ -1,9 +1,9 @@
-const fs = require('fs')
+import fs from "fs"
 
-const path = "./files/pets.json"
+const path = "./files/products.json"
 
-class PetManager{ // Class contenedora, gestiona multiples pets
-    getAllPets = async() =>{
+export default class ProductsManager{ // Class contenedora, gestiona multiples pets
+    getAllProducts = async() =>{
         try {
             if(fs.existsSync(path)){
                 let fileData = await fs.promises.readFile(path, 'utf-8')
@@ -19,7 +19,7 @@ class PetManager{ // Class contenedora, gestiona multiples pets
 
     addPet = async(pet) =>{
         try {
-            let pets = await this.getAllPets()
+            let pets = await this.getAllProducts()
             if(pets.length === 0){ // There aren't no pets
                 pet.id=1;
                 pets.push(pet);
@@ -37,7 +37,7 @@ class PetManager{ // Class contenedora, gestiona multiples pets
 
     getById = async(id) => {
         try {
-            let objetId = await this.getAllPets()
+            let objetId = await this.getAllProducts()
             const filtrar = objetId.find((item) =>{
                 if(id == item.id){
                     return item
@@ -54,7 +54,7 @@ class PetManager{ // Class contenedora, gestiona multiples pets
 
     deleteById = async(id) =>{
         try{
-            let eliminar = await this.getAllPets()
+            let eliminar = await this.getAllProducts()
             const eliminate = eliminar.filter((item) =>{
                 if(id != item.id){
                     return item
@@ -78,5 +78,3 @@ class PetManager{ // Class contenedora, gestiona multiples pets
         }
     }
 }
-
-module.exports = PetManager;
