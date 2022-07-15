@@ -13,8 +13,8 @@ const enviroment = async() =>{
     console.log('Add product')
    
     let producto = {
-        name: 'Cuaderno',
-        precio: "10.000"
+        name: 'Borrador',
+        price: "1.300"
     }
 
     // let id = 3

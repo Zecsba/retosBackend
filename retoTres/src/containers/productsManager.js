@@ -1,8 +1,7 @@
 import fs from "fs"
 
 const path = "./files/products.json"
-
-export default class ProductsManager{ // Class contenedora, gestiona multiples pets
+class ProductsManager{ // Class contenedora, gestiona multiples pets
     getAllProducts = async() =>{
         try {
             if(fs.existsSync(path)){
@@ -17,18 +16,18 @@ export default class ProductsManager{ // Class contenedora, gestiona multiples p
         }
     }
 
-    addPet = async(pet) =>{
+    addPet = async(product) =>{
         try {
             let pets = await this.getAllProducts()
             if(pets.length === 0){ // There aren't no pets
-                pet.id=1;
-                pets.push(pet);
+                product.id=1;
+                pets.push(product);
                 await fs.promises.writeFile(path, JSON.stringify(pets, null, '\t'))
             }else{
-                pet.id = pets[pets.length-1].id+1;
-                pets.push(pet);
+                product.id = pets[pets.length-1].id+1;
+                pets.push(product);
                 await fs.promises.writeFile(path, JSON.stringify(pets, null, '\t'))
-                console.log(`La mascota ${pet.name} tiene un id y es: ${pet.id}`)
+                console.log(`El producto ${product.name} tiene un id y es: ${product.id}`)
             }
         } catch (error) {
             console.log('Cannot write file: ' + error)
@@ -78,3 +77,5 @@ export default class ProductsManager{ // Class contenedora, gestiona multiples p
         }
     }
 }
+
+export default ProductsManager
