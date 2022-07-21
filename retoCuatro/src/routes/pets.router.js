@@ -11,6 +11,7 @@ router.get('/', (req, res) =>{
 
 router.post('/', uploader.single('file'), (req, res) =>{
     let pet = req.body;
+    console.log(req.body)
     console.log(req.file)
     console.log(pet)
     if(!pet.name) return res.status(400).send({status: 'error', error:'Invalid input'})

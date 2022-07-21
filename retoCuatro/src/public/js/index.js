@@ -1,5 +1,5 @@
 let petForm = document.getElementById('petForm');
-let result
+// let result
 const handleSubmit = (evt,form,route) =>{
     evt.preventDefault();
     let formData = new FormData(form);
@@ -18,4 +18,3 @@ const handleSubmit = (evt,form,route) =>{
     })
 }
 petForm.addEventListener('submit',(e)=>handleSubmit(e,e.target,'/pets'))
-
