@@ -1,6 +1,6 @@
 import { Router } from "express";
-import ProductsManager from "../public/containers/index.js"
-const productService  = new ProductsManager();
+import ProductsproductService from "../public/containers/index.js"
+const productService  = new ProductsproductService();
 const router = Router();
 
 ///GET '/api/productos' -> devuelve todos los productos.
@@ -14,12 +14,12 @@ router.get('/',async(req,res)=>{
 //GET '/api/productos/:id' -> devuelve un producto según su id.
 
 router.get('/id',async(req,res)=>{
-    let Lista = await manager.getAll()
+    let Lista = await productService.getAll()
     if (req.query.id > Lista.length) {
         res.send("404 El valor pedido no existe")
     } else {
         let numero = req.query.id
-        let obtenerId = await manager.getById(numero)
+        let obtenerId = await productService.getById(numero)
         res.send(obtenerId)
     }
 })
@@ -29,14 +29,14 @@ router.get('/id',async(req,res)=>{
 router.post('/',async(req,res)=>{
     let producto = req.body
     res.send({status:"success", message:"Product Added"})
-    await manager.save(producto)
+    await productService.save(producto)
 })
 
 //PUT '/api/productos/:id' -> recibe y actualiza un producto según su id.
 
 router.put('/',async(req,res)=>{
     let producto = req.body
-   await manager.actualizar(producto)
+   await productService.actualizar(producto)
 })
 
 
@@ -44,7 +44,7 @@ router.put('/',async(req,res)=>{
 router.delete('/',async(req,res)=>{
     let id = req.body
     res.send("Eliminado")
-   await manager.deleteById(id.delete)
+   await productService.deleteById(id.delete)
 })
 
 
