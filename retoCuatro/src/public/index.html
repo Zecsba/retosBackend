@@ -7,18 +7,67 @@
     <title>Document</title>
 </head>
 <body>
-    <form id="petForm">
-        <label>Nombre</label>
-        <input name="name">
+    <h1>Hola, si desea ver su ultimo producto agregado con su id asignado valla<a href="http://localhost:8080/api/productos/"> aqui</a></h1>
 
-        <label>Especie</label>
-        <input name="specie">
+    <h2>Agregar Producto</h2>
+        <form id="productosForm">
+            <div>
+                <label>Title</label>
+                <input name="title" required>
+            </div>
+            <div>
+                <label>Prices</label>
+                <input name="prices" required>
+            </div>
+            <div>
+                <label>Selecciona la imagen a subir</label>
+                <input type="file" name="thumbnail" required>
+            </div>
+            
+            <input type="submit">
+        </form>
 
-        <input type="file" name="file">
+    <h2>Funciones</h2>
+        <form action="http://localhost:8080/api/productos/id" method="get">
+            <div>
+                <label>Buscar producto con id :</label>
+                <input type = "number" name="id" required>
+            </div>
 
-        <input type="submit">
-    </form>
+            <button>Buscar id</button>
+        </form>
 
-    <script src="js/index.js"></script>
+        <form id="deleteForm">
+            <div>
+                <label>Borrar por id:</label>
+                <input type = "number" name="delete" required>
+            </div>
+
+            <input type="submit">
+        </form>
+
+    <h2>Actualizar producto</h2>
+        <form id="actualizarForm">
+            <div>
+                <label>Id del producto que quieres actualizar</label>
+                <input type = "number" name="id" required>
+            </div>
+            <div>
+                <label>Title</label>
+                <input name="title" required>
+            </div>
+            <div>
+                <label>Prices</label>
+                <input name="prices" required>
+            </div>
+            <div>
+                <label>Thumbnail</label>
+                <input name="thumbnail" required>
+            </div>
+            
+            <input type="submit">
+        </form>
+
+    <script src="./js/index.js"></script>
 </body>
 </html>
