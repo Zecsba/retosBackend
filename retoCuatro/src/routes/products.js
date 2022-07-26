@@ -3,7 +3,7 @@ import ProductsproductService from "../public/containers/index.js"
 const productService  = new ProductsproductService();
 const router = Router();
 
-///GET '/api/productos' -> devuelve todos los productos.
+///GET '/api/products' -> devuelve todos los products.
 
 router.get('/',async(req,res)=>{
     console.log(getAll)
@@ -11,7 +11,7 @@ router.get('/',async(req,res)=>{
     res.send(getAll);
 })
 
-//GET '/api/productos/:id' -> devuelve un producto según su id.
+//GET '/api/products/:id' -> devuelve un product según su id.
 
 router.get('/id',async(req,res)=>{
     let Lista = await productService.getAll()
@@ -24,23 +24,23 @@ router.get('/id',async(req,res)=>{
     }
 })
 
-//POST '/api/productos' -> recibe y agrega un producto.
+//POST '/api/products' -> recibe y agrega un product.
 
 router.post('/',async(req,res)=>{
-    let producto = req.body
+    let product = req.body
     res.send({status:"success", message:"Product Added"})
-    await productService.save(producto)
+    await productService.save(product)
 })
 
-//PUT '/api/productos/:id' -> recibe y actualiza un producto según su id.
+//PUT '/api/products/:id' -> recibe y actualiza un product según su id.
 
 router.put('/',async(req,res)=>{
-    let producto = req.body
-   await productService.actualizar(producto)
+    let product = req.body
+   await productService.actualizar(product)
 })
 
 
-//DELETE '/api/productos/:id' -> elimina un producto según su id.
+//DELETE '/api/products/:id' -> elimina un product según su id.
 router.delete('/',async(req,res)=>{
     let id = req.body
     res.send("Eliminado")
