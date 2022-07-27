@@ -1,8 +1,7 @@
 import fs from "fs"
 
-const path = "./files/products.json"
-class ProductsManager{ 
-    // Class contenedora, gestiona multiples pets
+const path = "./src/public/base/products.json"
+class ProductsManager{ // Class contenedora, gestiona multiples pets
     getAllProducts = async() =>{
         try {
             if(fs.existsSync(path)){
@@ -63,11 +62,29 @@ class ProductsManager{
                 }
             })
             const nuevoArray = fs.promises.writeFile(path, JSON.stringify(eliminate, null, '\t'))
-            console.log("deletByID: Mascota Eliminado correctamente")
+            console.log("deletByID: Producto eliminado correctamente")
             return nuevoArray
         }catch(error){
             console.log('Cannot eliminate ID: ' ,error)
         }
+    }
+
+    update = async(obj) =>{
+        let arr = await this.getAllProducts()
+        let id = obj.id;
+        let titulo = obj.title;
+        let price = obj.prices;
+        let thumbnail = obj.thumbnail;
+        arr.map(function(dato){
+            if(dato.id == id){
+                dato.title = titulo;
+                dato.prices = price;
+                dato.thumbnail = thumbnail;
+            }
+        })
+        await fs.promises.writeFile(path,JSON.stringify(arr,null,'\t'));
+        console.log(arr)
+        return arr;
     }
 
     deleteAll = async() => {

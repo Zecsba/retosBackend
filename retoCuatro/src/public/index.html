@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hola, si desea ver su ultimo producto agregado con su id asignado valla<a href="http://localhost:8080/api/productos/"> aqui</a></h1>
+    <h1>Hola, si desea ver su ultimo producto agregado con su id asignado valla<a href="http://localhost:8080/api/products"> aqui</a></h1>
 
     <h2>Agregar Producto</h2>
         <form id="productosForm">
@@ -20,15 +20,15 @@
                 <input name="prices" required>
             </div>
             <div>
-                <label>Selecciona la imagen a subir</label>
-                <input type="file" name="file" required>
+                <label>URL de tu imagen</label>
+                <input name="imagenURL" required>
             </div>
             
             <input type="submit">
         </form>
 
     <h2>Funciones</h2>
-        <form action="http://localhost:8080/api/productos/id" method="get">
+        <form action="http://localhost:8080/api/products/id" method="get">
             <div>
                 <label>Buscar producto con id :</label>
                 <input type = "number" name="id" required>
@@ -61,8 +61,8 @@
                 <input name="prices" required>
             </div>
             <div>
-                <label>Thumbnail</label>
-                <input name="file" required>
+                <label>URL de tu imagen</label>
+                <input name="imagenURL" required>
             </div>
             
             <input type="submit">

@@ -1,0 +1,20 @@
+[
+	{
+		"title": "Arroz",
+		"prices": "1220",
+		"imagenURL": "https://www.recetasderechupete.com/como-hacer-un-arroz-blanco-perfecto/25619/",
+		"id": 2
+	},
+	{
+		"title": "Frijoles",
+		"prices": "1201",
+		"imagenURL": "https://www.recetasderechupete.com/como-hacer-un-arroz-blanco-perfecto/25619/",
+		"id": 3
+	},
+	{
+		"title": "Leche",
+		"prices": "200",
+		"imagenURL": "https://www.recetasderechupete.com/como-hacer-un-arroz-blanco-perfecto/25619/",
+		"id": 4
+	}
+]
