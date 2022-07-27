@@ -1,13 +1,13 @@
 import fs from "fs"
 
 const path = "./src/public/base/products.json"
-class ProductsManager{ // Class contenedora, gestiona multiples pets
+class ProductsManager{ // Class contenedora, gestiona multiples products
     getAllProducts = async() =>{
         try {
             if(fs.existsSync(path)){
                 let fileData = await fs.promises.readFile(path, 'utf-8')
-                let pets = JSON.parse(fileData)
-                return pets;
+                let products = JSON.parse(fileData)
+                return products;
             }else{
                 return [];
             }
@@ -18,15 +18,15 @@ class ProductsManager{ // Class contenedora, gestiona multiples pets
 
     addPet = async(product) =>{
         try {
-            let pets = await this.getAllProducts()
-            if(pets.length === 0){ // There aren't no pets
+            let products = await this.getAllProducts()
+            if(products.length === 0){ // There aren't no products
                 product.id=1;
-                pets.push(product);
-                await fs.promises.writeFile(path, JSON.stringify(pets, null, '\t'))
+                products.push(product);
+                await fs.promises.writeFile(path, JSON.stringify(products, null, '\t'))
             }else{
-                product.id = pets[pets.length-1].id+1;
-                pets.push(product);
-                await fs.promises.writeFile(path, JSON.stringify(pets, null, '\t'))
+                product.id = products[products.length-1].id+1;
+                products.push(product);
+                await fs.promises.writeFile(path, JSON.stringify(products, null, '\t'))
                 console.log(`El producto ${product.name} tiene un id y es: ${product.id}`)
             }
         } catch (error) {
@@ -70,21 +70,21 @@ class ProductsManager{ // Class contenedora, gestiona multiples pets
     }
 
     update = async(obj) =>{
-        let arr = await this.getAllProducts()
+        let updating = await this.getAllProducts()
         let id = obj.id;
         let titulo = obj.title;
         let price = obj.prices;
-        let thumbnail = obj.thumbnail;
-        arr.map(function(dato){
+        let imagenURL = obj.imagenURL;
+        updating .map(function(dato){
             if(dato.id == id){
                 dato.title = titulo;
                 dato.prices = price;
-                dato.thumbnail = thumbnail;
+                dato.imagenURL = imagenURL;
             }
         })
-        await fs.promises.writeFile(path,JSON.stringify(arr,null,'\t'));
-        console.log(arr)
-        return arr;
+        await fs.promises.writeFile(path,JSON.stringify(updating ,null,'\t'));
+        console.log(updating )
+        return updating ;
     }
 
     deleteAll = async() => {

@@ -37,7 +37,7 @@ router.post('/', async(req,res)=>{
 
 router.put('/',async(req,res)=>{
     let product = req.body
-   await productService.update(product)
+    await productService.update(product)
 })
 
 
