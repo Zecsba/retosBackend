@@ -21,7 +21,7 @@ router.get('/id',async(req,res)=>{
     } else {
         let numero = req.query.id
         let obtenerId = await productService.getById(numero)
-        res.send(obtenerId)
+        res.send("El id que tu escogiste es " + obtenerId)
     }
 })
 
