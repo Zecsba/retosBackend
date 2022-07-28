@@ -65,7 +65,6 @@ form_CxID.addEventListener('submit', async (e) => {
     e.preventDefault();
     let formData = {}
     new FormData(form_CxID).forEach( (value, key) =>formData[key] = value)
-    console.log('formData : ',formData) ;
     document.getElementById('code-form_CxID_Form').innerHTML = `${JSON.stringify(formData)}`;
     document.getElementById('Mehotd_form_CxID').innerHTML = `GET '/api/productos/:id' :`
     const res =  await fetch('http://localhost:8080/api/productos/'+formData.productId, {

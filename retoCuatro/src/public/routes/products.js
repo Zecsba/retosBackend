@@ -17,11 +17,14 @@ router.get('/',async(req,res)=>{
 router.get('/:id',async(req,res)=>{
     let lista = await productService.getAllProducts()
     if (req.query.id > lista.length) {
-        res.send("404 El valor pedido no existe")
+        res.send({error:"404 El valor pedido no existe"})
     } else {
         let id = req.query.id
         let obtenerId = await productService.getById(id)
-        res.send(obtenerId)
+        //res.send(obtenerId)
+        res.json({
+            "data":lista
+        })
     }
 })
 

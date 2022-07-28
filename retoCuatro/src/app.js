@@ -11,5 +11,5 @@ const port = 8080
 const server = app.listen(port, ()=>console.log('Ahora escuchando en el puerto 8080'))
 
 app.use(express.json())
-app.use('/api/products', productsRouter)
+app.use('/api/productos', productsRouter)
 app.use(express.static(__dirname+'/public'))
