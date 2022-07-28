@@ -14,7 +14,7 @@ router.get('/',async(req,res)=>{
 
 //GET '/api/products/:id' -> devuelve un product según su id.
 
-router.get('/id',async(req,res)=>{
+router.get('/:id',async(req,res)=>{
     let lista = await productService.getAllProducts()
     if (req.query.id > lista.length) {
         res.send("404 El valor pedido no existe")

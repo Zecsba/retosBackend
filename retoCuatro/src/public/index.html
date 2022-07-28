@@ -28,26 +28,24 @@
         </form>
 
     <h2>Funciones</h2>
-        <form id="getInformation" method="get" action="http://localhost:8080/api/productos/id">
-            <div>
-                <label>Buscar producto con id :</label>
-                <input type = "number" name="id" required>
-            </div>
 
-            <blockquote>
-                <pre>Form Data : 
-        <code id="code-form_CxID_Form"></code>
-                </pre>
-            </blockquote>
+    <form id="form_CxID">
+        <label for="productId">Product ID</label>: 
+        <input type="number" name="productId" placeholder="Product Id - example: 1"  min="0"  step="1" required>
+        <button class="btn btn-lg btn-primary">Buscar</button>
+    </form>
 
+        <blockquote>
+            <pre>Form Data : 
+    <code id="code-form_CxID_Form"></code>
+            </pre>
+        </blockquote>
 
-            <blockquote>
-                <pre><label id="Mehotd_form_CxID">GET | PUT '/api/productos/:id' :</label>
-        <code id="code-form_CxID_Method"></code>
-                </pre>
-            </blockquote> 
-            <input type="submit">
-        </form>
+        <blockquote>
+            <pre><label id="Mehotd_form_CxID">GET | PUT '/api/productos/:id' :</label>
+    <code id="code-form_CxID_Method"></code>
+            </pre>
+        </blockquote> 
 
         <form id="deleteForm">
             <div>
