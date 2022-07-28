@@ -28,13 +28,25 @@
         </form>
 
     <h2>Funciones</h2>
-        <form action="http://localhost:8080/api/products/id" method="get">
+        <form id="getInformation" method="get" action="http://localhost:8080/api/productos/id">
             <div>
                 <label>Buscar producto con id :</label>
                 <input type = "number" name="id" required>
             </div>
 
-            <button>Buscar id</button>
+            <blockquote>
+                <pre>Form Data : 
+        <code id="code-form_CxID_Form"></code>
+                </pre>
+            </blockquote>
+
+
+            <blockquote>
+                <pre><label id="Mehotd_form_CxID">GET | PUT '/api/productos/:id' :</label>
+        <code id="code-form_CxID_Method"></code>
+                </pre>
+            </blockquote> 
+            <input type="submit">
         </form>
 
         <form id="deleteForm">

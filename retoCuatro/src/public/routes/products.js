@@ -19,9 +19,9 @@ router.get('/id',async(req,res)=>{
     if (req.query.id > lista.length) {
         res.send("404 El valor pedido no existe")
     } else {
-        let numero = req.query.id
-        let obtenerId = await productService.getById(numero)
-        res.send("El id que tu escogiste es " + obtenerId)
+        let id = req.query.id
+        let obtenerId = await productService.getById(id)
+        res.send(obtenerId)
     }
 })
 

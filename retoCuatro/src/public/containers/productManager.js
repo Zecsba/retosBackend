@@ -1,13 +1,13 @@
 import fs from "fs"
 
 const path = "./src/public/base/products.json"
-class ProductsManager{ // Class contenedora, gestiona multiples products
+class ProductsManager{ // Class contenedora, gestiona multiples pets
     getAllProducts = async() =>{
         try {
             if(fs.existsSync(path)){
                 let fileData = await fs.promises.readFile(path, 'utf-8')
-                let products = JSON.parse(fileData)
-                return products;
+                let pets = JSON.parse(fileData)
+                return pets;
             }else{
                 return [];
             }
@@ -18,16 +18,16 @@ class ProductsManager{ // Class contenedora, gestiona multiples products
 
     addPet = async(product) =>{
         try {
-            let products = await this.getAllProducts()
-            if(products.length === 0){ // There aren't no products
+            let pets = await this.getAllProducts()
+            if(pets.length === 0){ // There aren't no pets
                 product.id=1;
-                products.push(product);
-                await fs.promises.writeFile(path, JSON.stringify(products, null, '\t'))
+                pets.push(product);
+                await fs.promises.writeFile(path, JSON.stringify(pets, null, '\t'))
             }else{
-                product.id = products[products.length-1].id+1;
-                products.push(product);
-                await fs.promises.writeFile(path, JSON.stringify(products, null, '\t'))
-                console.log(`El producto ${product.name} tiene un id y es: ${product.id}`)
+                product.id = pets[pets.length-1].id+1;
+                pets.push(product);
+                await fs.promises.writeFile(path, JSON.stringify(pets, null, '\t'))
+                console.log(`El producto ${product.title} tiene un id y es: ${product.id}`)
             }
         } catch (error) {
             console.log('Cannot write file: ' + error)
@@ -62,29 +62,11 @@ class ProductsManager{ // Class contenedora, gestiona multiples products
                 }
             })
             const nuevoArray = fs.promises.writeFile(path, JSON.stringify(eliminate, null, '\t'))
-            console.log("deletByID: Producto eliminado correctamente")
+            console.log("deletByID: Mascota Eliminado correctamente")
             return nuevoArray
         }catch(error){
             console.log('Cannot eliminate ID: ' ,error)
         }
-    }
-
-    update = async(obj) =>{
-        let updating = await this.getAllProducts()
-        let id = obj.id;
-        let titulo = obj.title;
-        let price = obj.prices;
-        let imagenURL = obj.imagenURL;
-        updating .map(function(dato){
-            if(dato.id == id){
-                dato.title = titulo;
-                dato.prices = price;
-                dato.imagenURL = imagenURL;
-            }
-        })
-        await fs.promises.writeFile(path,JSON.stringify(updating ,null,'\t'));
-        console.log(updating )
-        return updating ;
     }
 
     deleteAll = async() => {
