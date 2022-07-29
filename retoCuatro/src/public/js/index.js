@@ -1,7 +1,7 @@
 // ProductosForm
 let productosForm = document.getElementById('productosForm')
 
-productosForm.addEventListener('submit',(e)=>handleSubmit(e,e.target,'/api/products'))
+productosForm.addEventListener('submit',(e)=>handleSubmit(e,e.target,'/api/productos'))
 
 const handleSubmit = (evt,form,route) =>{
     evt.preventDefault()
@@ -14,14 +14,14 @@ const handleSubmit = (evt,form,route) =>{
         headers:{
             "Content-Type":"application/json"
         }
-    }).then(res =>res.json()).then(json=>console.log(json));
+    }).then(res=>res.json()).then(json=>result=json);
 }
 
 // DeleteForm
 
 let deleteForm = document.getElementById('deleteForm')
 
-deleteForm.addEventListener('submit',(e)=>deleteSubmit(e,e.target,'/api/products'))
+deleteForm.addEventListener('submit',(e)=>deleteSubmit(e,e.target,'/api/productos'))
 
 const deleteSubmit = (evt,form,route) =>{
     evt.preventDefault()
@@ -41,7 +41,7 @@ const deleteSubmit = (evt,form,route) =>{
 // ActualizarForm
 let actualizarForm = document.getElementById('actualizarForm')
 
-actualizarForm.addEventListener('submit',(e)=>actualizarSubmit(e,e.target,'/api/products'))
+actualizarForm.addEventListener('submit',(e)=>actualizarSubmit(e,e.target,'/api/productos'))
 
 const actualizarSubmit = (evt,form,route) =>{
     evt.preventDefault()

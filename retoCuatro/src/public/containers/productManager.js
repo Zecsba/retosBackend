@@ -27,7 +27,7 @@ class ProductsManager{ // Class contenedora, gestiona multiples pets
                 product.id = pets[pets.length-1].id+1;
                 pets.push(product);
                 await fs.promises.writeFile(path, JSON.stringify(pets, null, '\t'))
-                console.log(`El producto ${product.title} tiene un id y es: ${product.id}`)
+                console.log(`El producto ${product.name} tiene un id y es: ${product.id}`)
             }
         } catch (error) {
             console.log('Cannot write file: ' + error)
